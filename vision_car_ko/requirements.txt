@@ -1,0 +1,8 @@
+flask
+numpy
+pandas
+keras==2.15.0
+plotly
+requests
+tensorflow==2.15.0
+pillow
