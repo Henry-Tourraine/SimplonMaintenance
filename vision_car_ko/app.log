@@ -1,0 +1,33 @@
+2024-08-28 11:45:53,530 : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-08-28 11:45:53,530 : [33mPress CTRL+C to quit[0m
+2024-08-28 11:45:53,534 :  * Restarting with stat
+2024-08-28 11:45:57,809 :  * Debugger is active!
+2024-08-28 11:45:57,810 :  * Debugger PIN: 562-054-038
+2024-08-28 11:45:58,324 : 127.0.0.1 - - [28/Aug/2024 11:45:58] "GET / HTTP/1.1" 200 -
+2024-08-28 11:45:58,502 : 127.0.0.1 - - [28/Aug/2024 11:45:58] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2024-08-28 11:47:27,754 : 127.0.0.1 - - [28/Aug/2024 11:47:27] "[33mGET /dashboard/overview HTTP/1.1[0m" 404 -
+2024-08-28 11:48:07,020 :  * Detected change in '/mnt/c/Users/HP/debugging - Simplon/vision_car_ko/run.py', reloading
+2024-08-28 11:48:07,715 :  * Restarting with stat
+2024-08-28 11:50:24,888 : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-08-28 11:50:24,889 : [33mPress CTRL+C to quit[0m
+2024-08-28 11:50:24,893 :  * Restarting with stat
+2024-08-28 11:50:30,282 :  * Debugger is active!
+2024-08-28 11:50:30,286 :  * Debugger PIN: 562-054-038
+2024-08-28 11:50:31,020 : 127.0.0.1 - - [28/Aug/2024 11:50:31] "GET /dashboard/overview HTTP/1.1" 200 -
+2024-08-28 11:50:31,412 : 127.0.0.1 - - [28/Aug/2024 11:50:31] "GET /dashboard/static/js/app.js HTTP/1.1" 200 -
+2024-08-28 11:50:31,456 : 127.0.0.1 - - [28/Aug/2024 11:50:31] "GET /dashboard/static/css/main.css HTTP/1.1" 200 -
+2024-08-28 11:50:33,195 : 127.0.0.1 - - [28/Aug/2024 11:50:33] "GET /dashboard/static/elements/menu.html HTTP/1.1" 200 -
+2024-08-28 11:50:33,209 : 127.0.0.1 - - [28/Aug/2024 11:50:33] "GET /dashboard/static/elements/modal.html HTTP/1.1" 200 -
+2024-08-28 11:50:33,220 : 127.0.0.1 - - [28/Aug/2024 11:50:33] "GET /dashboard/static/pages/overview.html HTTP/1.1" 200 -
+2024-08-28 11:50:33,231 : 127.0.0.1 - - [28/Aug/2024 11:50:33] "GET /dashboard/static/img/favicon.ico HTTP/1.1" 200 -
+2024-08-28 11:50:33,425 : 127.0.0.1 - - [28/Aug/2024 11:50:33] "GET /dashboard/static/fonts/fa-solid-900.woff2 HTTP/1.1" 200 -
+2024-08-28 11:50:33,510 : 127.0.0.1 - - [28/Aug/2024 11:50:33] "GET /dashboard/api/custom_graphs HTTP/1.1" 200 -
+2024-08-28 11:50:33,558 : 127.0.0.1 - - [28/Aug/2024 11:50:33] "GET /dashboard/static/pages/telemetry.html HTTP/1.1" 200 -
+2024-08-28 11:50:33,709 : 127.0.0.1 - - [28/Aug/2024 11:50:33] "GET /dashboard/api/deploy_details HTTP/1.1" 200 -
+2024-08-28 11:50:33,800 : 127.0.0.1 - - [28/Aug/2024 11:50:33] "GET /dashboard/api/overview HTTP/1.1" 200 -
+2024-08-28 11:50:33,850 : 127.0.0.1 - - [28/Aug/2024 11:50:33] "GET /dashboard/telemetry/get_is_telemetry_answered HTTP/1.1" 200 -
+2024-08-28 11:50:33,903 : 127.0.0.1 - - [28/Aug/2024 11:50:33] "GET /dashboard/static/elements/monitorLevel.html HTTP/1.1" 200 -
+2024-08-28 11:50:38,713 : 127.0.0.1 - - [28/Aug/2024 11:50:38] "[35m[1mPOST /dashboard/telemetry/accept_telemetry_consent HTTP/1.1[0m" 204 -
+2024-08-28 11:50:43,204 : 127.0.0.1 - - [28/Aug/2024 11:50:43] "[36mGET /dashboard/static/css/main.css HTTP/1.1[0m" 304 -

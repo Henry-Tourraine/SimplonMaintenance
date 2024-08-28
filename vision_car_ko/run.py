@@ -5,20 +5,32 @@ import numpy as np
 import json
 import tensorflow as tf
 from keras.models import load_model
-
+import logging
 import base64
 from io import BytesIO
+import flask_monitoringdashboard as dashboard
 
 app = Flask(__name__)
+
+logging.basicConfig(
+    level=logging.ERROR,
+    format='%(asctime)s : %(message)s',
+    # detailed format : '%(asctime)s %(levelname)s [%(module)s.%(funcName)s]: %(message)s [in %(pathname)s:%(lineno)d]'
+    handlers=[
+        logging.FileHandler("app.log"),
+        logging.StreamHandler()
+    ]
+)
 
 @app.route('/')
 def index():
 
     return render_template('index.html') # CORRECTION : Template is named index.html not home.html an folder name "template" lacks an 's' at the end.
 
+
 @app.route('/upload', methods=['GET', 'POST'])
 def upload_image():
-
+    
     model = tf.keras.models.load_model("models/unet_vgg16_categorical_crossentropy_raw_data.keras", compile=False) # CORRECTION : Wrong path (missing 'models' folder)
 
 
@@ -35,10 +47,13 @@ def upload_image():
     if request.method == 'POST':
 
         image = request.files['file']
-
+        print(image.filename)
+        if image.filename == '':            # CORRECTION : Indent these two lines
+            return "Nom de fichier invalide"
+    
         img = Image.open(image)
 
-        IMAGE_SIZE = 512
+        IMAGE_SIZE = 256 # CORRECTION : Size should be 256 not 512
 
         img_resized = img.resize((IMAGE_SIZE, IMAGE_SIZE), resample=Image.Resampling.NEAREST)
         img_resized = np.array(img_resized)
@@ -62,15 +77,20 @@ def upload_image():
         base64_img = base64.b64encode(buffered_img.getvalue()).decode("utf-8")
 
         buffered_mask = BytesIO()
+        predict_image = Image.fromarray(predict_mask)
+        predict_image.save(buffered_mask, format="PNG") # CORRECTION : Prediction was not written
         base64_mask = base64.b64encode(buffered_mask.getvalue()).decode("utf-8")
-
+    
         print("Finished")
 
-        return json({'message':"predict ok", "img_data":base64_img, "mask_data":base64_mask})
+        return jsonify({'message':"predict ok", "img_data":base64_img, "mask_data":base64_mask})
     
-    if image.filename == '':            # CORRECTION : Move these two lines at the end of the function
-        return "Nom de fichier invalide"
+    
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port=8000)
+    dashboard.config.init_from(file='config.cfg')
+    dashboard.config.enable_logging = True
+    dashboard.bind(app)
+    dashboard.config.monitor_level = 3
+    app.run(debug=True, port=5000)
